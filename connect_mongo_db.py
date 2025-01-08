@@ -9,6 +9,7 @@ db = client[db_name]
 collection = db["student_db"]
 
 while (True):
+    print("actions: show_all, delete, find_name, find_score, find_total_score")
     action = input("insert action: ")
     if action == 'show_all':
         results = collection.find()
