@@ -1,8 +1,7 @@
 from django.shortcuts import render
-from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 from django.http.response import JsonResponse
-
+from django.contrib.auth.decorators import login_required
 from posts.models import Product
 from posts.serializers import ProductSerializer
 
@@ -10,7 +9,7 @@ from django.core.files.storage import default_storage
 
 # Create your views here.
 
-@csrf_exempt
+@login_required
 def ProductApi(request,id=0):
     if request.method=='GET':
         Product = Product.objects.all()
