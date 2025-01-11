@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = 'posts.User'
 
 # Application definition
 
@@ -39,7 +40,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     'rest_framework',
     'corsheaders',
-    'posts'
+    'posts',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -82,7 +84,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'mydb',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': 'khanh051201',
         'HOST': 'localhost',  # Or the IP address of your MySQL server
         'PORT': '3306',  # MySQL default port
     }
