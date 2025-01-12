@@ -12,4 +12,3 @@ router.register('product', views.productApi, basename='data')
 router.register('user', views.userApi, basename='user')
 urlpatterns = router.urls
 urlpatterns.append(path('function/', views.function_based))
-# urlpatterns.append(user_router.urls)
