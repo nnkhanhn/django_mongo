@@ -19,22 +19,15 @@ from drf_yasg import openapi
 class productApi(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
-    def list(self, request):
-        product = list(Product.objects.all().values())
-        return Response(product)
     
 class userApi(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    def list(self, request):
-        user = list(User.objects.all().values())
-        return Response(user)
     
 @swagger_auto_schema(method='get', operation_description="Retrieve a list of products", responses={200: openapi.Response('List of products')},
                      manual_parameters=[
             openapi.Parameter('username', openapi.IN_HEADER, description="username", type=openapi.TYPE_STRING),
             openapi.Parameter('password', openapi.IN_HEADER, description="password", type=openapi.TYPE_STRING)
-
         ])
 @api_view(['GET'])
 def function_based(request):
